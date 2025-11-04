@@ -1,1 +1,9 @@
-hello world this is a test
+import tkinter as tk
+from tkinter import messagebox
+
+def show_popup():
+    messagebox.showinfo("Popup Title", "Hello! This is your popup window.")
+
+root = tk.Tk()
+root.withdraw()  # Hide the main window
+show_popup()
