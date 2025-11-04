@@ -1,9 +1,23 @@
-import tkinter as tk
-from tkinter import messagebox
+import customtkinter as ctk
 
-def show_popup():
-    messagebox.showinfo("Popup Title", "Hello! This is your popup window.")
+ctk.set_appearance_mode("System")
+ctk.set_default_color_theme("blue")
 
-root = tk.Tk()
-root.withdraw()  # Hide the main window
-show_popup()
+class Popup(ctk.CTkToplevel):
+    def __init__(self, master=None):
+        super().__init__(master)
+        self.title("CTk Popup")
+        self.geometry("350x180")
+
+        label = ctk.CTkLabel(self, text="This is a CustomTkinter popup!")
+        label.pack(pady=30)
+
+        button = ctk.CTkButton(self, text="Close", command=self.destroy)
+        button.pack()
+
+app = ctk.CTk()
+app.withdraw()
+
+popup = Popup(app)
+
+app.mainloop()
